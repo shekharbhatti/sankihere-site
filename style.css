@@ -15,9 +15,13 @@ h1{
    
     padding: 25%;
     text-align: center;
+
     justify-content: center;
     color: white;
     font-family: 'Merriweather Sans', sans-serif;
+}
+a:link{
+    color: white;
 }
 @keyframes hello {
     0%{
