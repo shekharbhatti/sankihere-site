@@ -14,14 +14,15 @@ padding: 0;}
 h1{
    
     padding: 25%;
+    font-weight: bolder;
+    padding-top: 40vh;
     text-align: center;
-    font-size: 40px;
+    /* display: inline-block; */
+    font-size: 50px;
     border-top: medium;
     justify-content: center;
-    color: rgb(15, 1, 1);
-    font-family: 'Kalam', cursive;
-
-}
+    color: rgb(255, 255, 255);
+    font-family: 'Nunito Sans', sans-serif;}
 a:link{
     color: rgb(214, 56, 56);
     text-decoration: inherit;
