@@ -18,7 +18,7 @@ h1{
     padding-top: 40vh;
     text-align: center;
     /* display: inline-block; */
-    
+    color: white;
     font-size: 50px;
     border-top: medium;
     justify-content: center;
@@ -26,7 +26,7 @@ h1{
     font-family: 'Josefin Sans', sans-serif;
 }
 a:link{
-    color: white;
+    color: black;
     text-decoration: solid;
 }
 a:hover{
