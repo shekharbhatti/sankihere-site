@@ -5,7 +5,7 @@ padding: 0;}
     background-color: rgb(226, 25, 25);
     height: 100vh;
     width: 100%;
-    background-image: linear-gradient(60deg, #ff6596,#60bef8,#d88cff);
+    background-image: linear-gradient(60deg, #ffaf65,#d81cdf,#b92f2f);
     background-size: 600%, 600%;
     animation: hello 15s infinite linear;
 
@@ -18,17 +18,25 @@ h1{
     padding-top: 40vh;
     text-align: center;
     /* display: inline-block; */
+    
     font-size: 50px;
     border-top: medium;
     justify-content: center;
-    color: rgb(255, 255, 255);
-    font-family: 'Nunito Sans', sans-serif;}
+    
+    font-family: 'Josefin Sans', sans-serif;
+}
 a:link{
-    color: rgb(214, 56, 56);
-    text-decoration: inherit;
+    color: white;
+    text-decoration: solid;
 }
 a:hover{
     color: white;
+}
+a:after{
+    color: #ffaf65;
+}
+a::after{
+    color: #ffaf65;
 }
 @keyframes hello {
     0%{
