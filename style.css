@@ -1,52 +1,45 @@
-*{ margin: 0;
-padding: 0;}
-
-.bg{
-    background-color: rgb(226, 25, 25);
-    height: 100vh;
-    width: 100%;
-    background-image: linear-gradient(60deg, #ffaf65,#d81cdf,#b92f2f);
-    background-size: 600%, 600%;
-    animation: hello 15s infinite linear;
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;0,800;0,900;1,500;1,700&family=Rubik:ital@1&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 
 }
-h1{
-   
-    padding: 25%;
-    font-weight: bolder;
-    padding-top: 40vh;
-    text-align: center;
-    /* display: inline-block; */
-    color: white;
-    font-size: 50px;
-    border-top: medium;
+body{
+    display: flex ;
     justify-content: center;
-    
-    font-family: 'Josefin Sans', sans-serif;
+    align-items: center;
+    min-height: 100vh;
+    background: black;
 }
-a:link{
-    color: black;
-    text-decoration: solid;
+h2{ position: relative;
+    font-size: 3em;
+    color: #222;
 }
-a:hover{
-    color: white;
+h2::before{
+    content: attr(data-text);
+    position: absolute;
+    color: #fff;
+    width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid #fff;
+    animation: animate 8s linear infinite;
+    filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 50px #fff);
+
 }
-a:after{
-    color: #ffaf65;
-}
-a::after{
-    color: #ffaf65;
-}
-@keyframes hello {
-    0%{
-        background-position: 0 80% ;
+@keyframes animate
+
+{
+    0%,10%,100%
+    {
+        width: 0;
 
     }
-    50%{
-        background-position: 100% 20%;
+    70%,90%
+    {
+        width: 100%;
     }
-    100%{
-        background-position: 0% 85%;
     }
-}
+       
