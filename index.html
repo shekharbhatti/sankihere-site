@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>GM OFFICIAL</title>
+  <title>GM OFFICIAL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <style>
     /* Add your custom CSS styles here */
@@ -22,20 +22,17 @@
       padding: 20px;
       text-align: center;
     }
-    
-h1 {
-    color: #ffffff;
-    font-family: 'Allerta Stencil', sans-serif;
-    
-    font-size: 30px;
-    font-weight: bold;
-    margin: 0;
-}
+
+    h1 {
+      color: #ffffff;
+      font-family: 'Allerta Stencil', sans-serif;
+      font-size: 30px;
+      font-weight: bold;
+      margin: 0;
+    }
 
     .logo {
       display: inline-block;
-      
-      
     }
 
     .logo img {
@@ -44,7 +41,6 @@ h1 {
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-   
     .banner {
       width: 100%;
       max-width: 100%;
@@ -61,114 +57,172 @@ h1 {
     .footer p {
       margin: 0;
     }
-   
-        .card {
-           margin: auto;
-        
- width: 190px;
- height: 254px;
- border-radius: 30px;
- background: #212121;
- box-shadow: 15px 15px 30px rgb(25, 25, 25),
-             -15px -15px 30px rgb(60, 60, 60);
-}
 
-.card img{
-    width: 190px;
- height: 254px;
- border-radius: 30px;
+    .card {
+      margin: auto;
+      width: 190px;
+      height: 254px;
+      border-radius: 30px;
+      background: #212121;
+      box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60);
+    }
 
-}
+    .card img {
+      width: 190px;
+      height: 254px;
+      border-radius: 30px;
+    }
 
+    /* === removing default button style ===*/
+    .button {
+      margin: 0;
+      height: auto;
+      background: transparent;
+      padding: 0;
+      border: none;
+    }
 
-/* === removing default button style ===*/
-.button {
-  margin: 0;
-  height: auto;
-  background: transparent;
-  padding: 0;
-  border: none;
-}
+    /* button styling */
+    .button {
+      --border-right: 6px;
+      --text-stroke-color: rgba(255, 255, 255, 0.6);
+      --animation-color: #37FF8B;
+      --fs-size: 2em;
+      letter-spacing: 3px;
+      text-decoration: none;
+      font-size: var(--fs-size);
+      font-family: "Arial";
+      position: relative;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--text-stroke-color);
+    }
 
-/* button styling */
-.button {
-  --border-right: 6px;
-  --text-stroke-color: rgba(255,255,255,0.6);
-  --animation-color: #37FF8B;
-  --fs-size: 2em;
-  letter-spacing: 3px;
-  text-decoration: none;
-  font-size: var(--fs-size);
-  font-family: "Arial";
-  position: relative;
-  text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--text-stroke-color);
-}
-/* this is the text, when you hover on button */
-.hover-text {
-  position: absolute;
-  box-sizing: border-box;
-  content: attr(data-text);
-  color: var(--animation-color);
-  width: 0%;
-  inset: 0;
-  border-right: var(--border-right) solid var(--animation-color);
-  overflow: hidden;
-  transition: 0.5s;
-  -webkit-text-stroke: 1px var(--animation-color);
-}
-/* hover */
-.button:hover .hover-text {
-  width: 100%;
-  filter: drop-shadow(0 0 23px var(--animation-color))
-}
-.contaner{
-    display: flex;
-    justify-content: center;
-}
+    /* this is the text, when you hover on button */
+    .hover-text {
+      position: absolute;
+      box-sizing: border-box;
+      content: attr(data-text);
+      color: var(--animation-color);
+      width: 0%;
+      inset: 0;
+      border-right: var(--border-right) solid var(--animation-color);
+      overflow: hidden;
+      transition: 0.5s;
+      -webkit-text-stroke: 1px var(--animation-color);
+    }
+
+    /* hover */
+    .button:hover .hover-text {
+      width: 100%;
+      filter: drop-shadow(0 0 23px var(--animation-color))
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Loading screen styles */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .lds-hourglass {
+      display: inline-block;
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+
+    .lds-hourglass:after {
+      content: " ";
+      display: block;
+      border-radius: 50%;
+      width: 0;
+      height: 0;
+      margin: 8px;
+      box-sizing: border-box;
+      border: 32px solid #fff;
+      border-color: #fff transparent #fff transparent;
+      animation: lds-hourglass 1.2s infinite;
+    }
+
+    @keyframes lds-hourglass {
+      0% {
+        transform: rotate(0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+      }
+
+      50% {
+        transform: rotate(900deg);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+
+      100% {
+        transform: rotate(1800deg);
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="loading-overlay">
+    <div class="lds-hourglass"></div>
+  </div>
+
   <div class="header">
     <div class="logo">
       <img src="logo1.jpg" alt="Logo">
     </div>
-  
+
     <div class="name">
-    <h1>GM GAMING OFFICIAL</h1>
+      <h1>GM GAMING OFFICIAL</h1>
+    </div>
   </div>
-  </div>
-<br>
-<br>
-<div class="rd">
+  <br>
+  <br>
+  <div class="rd">
 
     <div class="card">
-        <img src="logo1.jpg" alt="logo">
-    </div> <br>
-  <br>
-  <div>
+      <img src="logo1.jpg" alt="logo">
+    </div>
+    <br>
+    <br>
+    <div>
+    </div>
   </div>
-</div>
-    <div class="contaner">
-
-  
-   <a href="https://indianshortner.in/STxkv3Eh" ><button data-text="Awesome" class="button">
+  <div class="container">
+    <a href="https://indianshortner.in/STxkv3Eh">
+      <button data-text="Awesome" class="button">
         <span class="actual-text">&nbsp;Get Key&nbsp;</span>
         <span class="hover-text" aria-hidden="true">&nbsp;Get&nbsp;Key&nbsp;</span>
-    </button>
-</a>
-    
-  </div>
+      </button>
+    </a>
   </div>
   <br>
   <br>
   <br>
   <br>
-
 
   <div class="footer">
     <p>&copy; 2023 <a href="https://t.me/GODLIKEHACKS">@Godlikehacks</a> All rights reserved.</p>
   </div>
+
+  <script>
+    // Hide the loading overlay when the page is fully loaded
+    window.addEventListener('load', function() {
+      var loadingOverlay = document.querySelector('.loading-overlay');
+      loadingOverlay.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
