@@ -11,11 +11,12 @@
 
     /* Add your custom CSS styles here */
 
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
       background: #000;
+      overflow: auto;
     }
 
     .header {
@@ -85,6 +86,8 @@
 
     /* button styling */
     .button {
+      display: flex;
+      justify-content: center;
       --border-right: 6px;
       --text-stroke-color:#37FF8B;
       --animation-color: #37FF8B;
@@ -209,6 +212,7 @@
       </button>
     </a>
   </div>
+  <div class="button" id="timer">&nbsp;</div>
   <br>
   <br>
   <br>
@@ -216,24 +220,51 @@
 
   <div class="footer">
     <p>&copy; 2023 <a href="https://t.me/GODLIKEHACKS">@Godlikehacks</a> All rights reserved.</p>
-  </div>
+    <script type="text/javascript" src="//counter.websiteout.net/js/2/5/130/0"></script>
+</div>
 
   <script>
-     const container = document.querySelector('.container');
-    const link = container.querySelector('a');
-  
-    if (!link || !link.href) {
-        const message = document.createElement('span');
-        message.textContent = 'Link not updated';
-        container.appendChild(message);
-    }
-     
     // JavaScript code
-       // Hide the loading overlay when the page is fully loaded
+    // Hide the loading overlay when the page is fully loaded
     window.addEventListener('load', function() {
       var loadingOverlay = document.querySelector('.loading-overlay');
       loadingOverlay.style.display = 'none';
     });
+
+    // Function to calculate the remaining time from IST 12 AM
+    function calculateRemainingTime() {
+      const now = new Date();
+      const targetTime = new Date(now);
+
+      // Set the target time to IST 12 AM (00:00:00)
+      targetTime.setHours(0, 0, 0, 0);
+
+      // Add 1 day if the current time is after IST 12 AM
+      if (now > targetTime) {
+        targetTime.setDate(targetTime.getDate() + 1);
+      }
+
+      // Calculate the remaining time in milliseconds
+      const remainingTime = targetTime - now;
+
+      // Calculate hours, minutes, and seconds from the remaining time
+      const hours = Math.floor(remainingTime / (1000 * 60 * 60));
+      const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+      // Format the remaining time as a string
+      const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+      // Display the remaining time in the HTML element with id "timer"
+      const timerElement = document.getElementById('timer');
+      timerElement.textContent = `    ${formattedTime}`;
+
+      // Call the calculateRemainingTime function every second
+      setTimeout(calculateRemainingTime, 1000);
+    }
+
+    // Call the calculateRemainingTime function initially to start the timer
+    calculateRemainingTime();
   </script>
 </body>
 </html>

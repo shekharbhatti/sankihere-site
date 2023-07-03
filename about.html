@@ -1,1 +1,38 @@
-helllo wrold
+<div id="timer"></div>
+
+<script>
+  // Function to calculate the remaining time from IST 12 AM
+  function calculateRemainingTime() {
+    const now = new Date();
+    const targetTime = new Date(now);
+
+    // Set the target time to IST 12 AM (00:00:00)
+    targetTime.setHours(0, 0, 0, 0);
+
+    // Add 1 day if the current time is after IST 12 AM
+    if (now > targetTime) {
+      targetTime.setDate(targetTime.getDate() + 1);
+    }
+
+    // Calculate the remaining time in milliseconds
+    const remainingTime = targetTime - now;
+
+    // Calculate hours, minutes, and seconds from the remaining time
+    const hours = Math.floor(remainingTime / (1000 * 60 * 60));
+    const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+    // Format the remaining time as a string
+    const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+    // Display the remaining time in the HTML element with id "timer"
+    const timerElement = document.getElementById('timer');
+    timerElement.textContent = `Remaining time: ${formattedTime}`;
+
+    // Call the calculateRemainingTime function every second
+    setTimeout(calculateRemainingTime, 1000);
+  }
+
+  // Call the calculateRemainingTime function initially to start the timer
+  calculateRemainingTime();
+</script>
