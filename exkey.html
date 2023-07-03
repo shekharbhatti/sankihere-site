@@ -127,6 +127,24 @@
       justify-content: center;
     }
 
+    .button1 {
+      display: flex;
+      justify-content: center;
+      --border-right: 6px;
+      --text-stroke-color:#37FF8B;
+      --animation-color: #37FF8B;
+      --fs-size: 2em;
+      letter-spacing: 3px;
+      text-decoration: none;
+      font-size: 15px;
+      font-family: "Arial";
+      position: relative;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--text-stroke-color);
+    }
+
+    
     /* Loading screen styles */
     .loading-overlay {
       position: fixed;
@@ -205,14 +223,15 @@
     </div>
   </div>
   <div class="container">
-    <a href="/index.html">
+    <a href="https://sankihere.tk">
       <button data-text="Awesome" class="button">
-        <span class="actual-text">&nbsp;KEY NOT UPDATED&nbsp;</span>
-        <span class="hover-text" aria-hidden="true">&nbsp;KEY&nbsp;NOT&nbsp;UPDATED&nbsp;</span>
+        <span class="actual-text">&nbsp;KEY EXPIRED&nbsp;</span>
+        <span class="hover-text" aria-hidden="true">&nbsp;KEY&nbsp;EXPIRED&nbsp;</span>
       </button>
     </a>
   </div>
-  <div class="button" id="timer">&nbsp;</div>
+  <br>
+  <marquee><div class="button1" id="timer">Check Telegram Channel For Update</marquee></div>
   <br>
   <br>
   <br>
@@ -232,39 +251,7 @@
     });
 
     // Function to calculate the remaining time from IST 12 AM
-    function calculateRemainingTime() {
-      const now = new Date();
-      const targetTime = new Date(now);
-
-      // Set the target time to IST 12 AM (00:00:00)
-      targetTime.setHours(0, 0, 0, 0);
-
-      // Add 1 day if the current time is after IST 12 AM
-      if (now > targetTime) {
-        targetTime.setDate(targetTime.getDate() + 1);
-      }
-
-      // Calculate the remaining time in milliseconds
-      const remainingTime = targetTime - now;
-
-      // Calculate hours, minutes, and seconds from the remaining time
-      const hours = Math.floor(remainingTime / (1000 * 60 * 60));
-      const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
-
-      // Format the remaining time as a string
-      const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-      // Display the remaining time in the HTML element with id "timer"
-      const timerElement = document.getElementById('timer');
-      timerElement.textContent = `    ${formattedTime}`;
-
-      // Call the calculateRemainingTime function every second
-      setTimeout(calculateRemainingTime, 1000);
-    }
-
-    // Call the calculateRemainingTime function initially to start the timer
-    calculateRemainingTime();
+    
   </script>
 </body>
 </html>
